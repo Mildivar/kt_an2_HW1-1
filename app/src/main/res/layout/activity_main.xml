@@ -4,18 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/common_space16"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/avatar"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@sample/posts.json/data/authorAvatar" />
+
+
     <TextView
+        android:id="@+id/author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_space16"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/author"
+        android:textSize="16sp"
+        app:chainUseRtl="false"
+        app:layout_constraintBottom_toTopOf="@+id/publisher"
+        app:layout_constraintEnd_toStartOf="@id/more_vert"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@sample/posts.json/data/author" />
+
+    <ImageButton
+        android:id="@+id/more_vert"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/more"
+        android:src="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/publisher"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_space16"
+        android:text="@string/published"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintEnd_toStartOf="@id/more_vert"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@+id/author"
+        tools:text="@sample/posts.json/data/published" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/upper_barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nmedia"
-        android:textSize="24sp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar,publisher" />
+
+    <TextView
+        android:id="@+id/middle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_space16"
+        android:autoLink="all"
+        android:text="@string/content"
+        android:textAlignment="inherit"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upper_barrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/lower_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="likes,lookouts,shares" />
+
+    <ImageButton
+        android:id="@+id/likes"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/likes"
+        android:src="@drawable/ic_outline_favorite_border_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/likes_amount"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:padding="0dp"
+        android:text="@string/likes_amount"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/likes"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/shares"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        android:layout_marginLeft="16sp"
+        android:contentDescription="@string/shares_amount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/likes_amount"
+        app:srcCompat="@android:drawable/ic_menu_share" />
+
+    <EditText
+        android:id="@+id/shares_amount"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="number"
+        android:padding="0dp"
+        android:text="@string/shares_amount"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shares"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/lookouts_amount"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="number"
+        android:padding="0dp"
+        android:text="@string/lookthrough_amount"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageButton
+        android:id="@+id/lookouts"
+        android:layout_width="@dimen/common_space24"
+        android:layout_height="@dimen/common_space24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lookouts_amount"
+        android:background="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_menu_view"
+        android:contentDescription="@string/lookouts" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

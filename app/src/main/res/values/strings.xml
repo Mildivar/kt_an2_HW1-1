@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">NewProject</string>
     <string name="nmedia">NMedia!</string>
+    <string name="content">Once upon a time, Netology began with online marketing intensives. Then there were courses in design, development, analytics and management. We grow ourselves and help students grow: from beginners to confident professionals. But the most important thing remains with us: we believe that everyone already has a force that makes you want more, aim higher, run faster. Our mission is to help you get on the road to growth and start a chain of change → http://netolo.gy/fyb </string>
+    <string name="author">Netology. University of Internet Professions of the Future</string>
+    <string name="published">May,21 18:36</string>
+    <string name="avatar">Avatar</string>
+    <string name="more">More info</string>
+    <string name="likes" translatable="false">Likes</string>
+    <string name="likes_amount" translatable="false">10</string>
+    <string name="shares_amount" translatable="false">5</string>
+    <string name="lookthrough_amount" translatable="false">18</string>
+    <string name="lookouts">lookouts</string>
+
 </resources>
